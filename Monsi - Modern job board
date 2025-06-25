@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Job Board</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fa;
+      color: #333;
+    }
+    header {
+      background-color: #4A90E2;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .job-card {
+      background: white;
+      padding: 1.5em;
+      border-radius: 8px;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .job-card:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .job-title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .job-company {
+      color: #666;
+    }
+    .job-location {
+      color: #888;
+      font-size: 0.9em;
+    }
+    .apply-btn {
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    .apply-btn:hover {
+      background-color: #357ABD;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Modern Job Board</h1>
+    <p>Find your next opportunity</p>
+  </header>
+  <div class="container" id="job-listings">
+    <!-- Jobs will be inserted here -->
+  </div>
+  <script>
+    const jobs = [
+      { title: "Frontend Developer", company: "TechCorp", location: "Remote", link: "#" },
+      { title: "Backend Engineer", company: "Innovate Inc.", location: "New York, NY", link: "#" },
+      { title: "Product Manager", company: "BuildIt", location: "San Francisco, CA", link: "#" },
+      { title: "UI/UX Designer", company: "DesignPro", location: "Austin, TX", link: "#" },
+    ];
+
+    const jobListings = document.getElementById("job-listings");
+
+    jobs.forEach(job => {
+      const jobCard = document.createElement("div");
+      jobCard.className = "job-card";
+      jobCard.innerHTML = `
+        <div class="job-title">${job.title}</div>
+        <div class="job-company">${job.company}</div>
+        <div class="job-location">${job.location}</div>
+        <a href="${job.link}" target="_blank"><button class="apply-btn">Apply Now</button></a>
+      `;
+      jobListings.appendChild(jobCard);
+    });
+  </script>
+</body>
+</html>
